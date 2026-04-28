@@ -15,14 +15,14 @@ Este repositorio es la documentación de una arquitectura que he venido refinand
 
 Encontrarás aquí:
 
+- **Filosofía** ([`docs/00-philosophy.md`](./docs/00-philosophy.md)) — los principios rectores que motivan cada decisión.
 - **Skills** (`skills/`) — archivos `.md` con instrucciones precisas, diseñados para que tanto humanos como asistentes de IA (Claude, Cursor, Copilot) los consuman y generen código que cumpla las reglas.
 - **ADRs** (`docs/02-decision-records/`) — registros de decisiones de arquitectura que explican el "por qué" detrás de cada elección.
 - **Ejemplos** (`examples/`) — snippets canónicos de cada pieza (ViewModel, UseCase, Entity, Repository, DI bindings).
-- **Diagramas** (`diagrams/`) — representaciones visuales de la arquitectura.
 
 ## ¿Por qué otra arquitectura?
 
-El ecosistema React de 2026 está dominado por hooks, Zustand/Jotai, server components y patrones funcionales. Son excelentes para muchos casos. Esta arquitectura **no compite con ellos en su terreno**: compite cuando:
+El ecosistema React actual está dominado por hooks, Zustand/Jotai, server components y patrones funcionales. Son excelentes para muchos casos. Esta arquitectura **no compite con ellos en su terreno**: compite cuando:
 
 - El dominio del negocio es **rico** (no eres un wrapper de un CRUD).
 - El equipo es **mediano o grande** (3+ desarrolladores).
@@ -216,7 +216,7 @@ flowchart LR
 
 ## Cómo aplicarlo a tu proyecto
 
-1. Lee este README completo.
+1. Lee este README completo y la [filosofía detrás de las decisiones](./docs/00-philosophy.md).
 2. Revisa el [Tour rápido](#tour-rápido-5-min) y los [ejemplos canónicos](./examples/).
 3. Consulta la skill que aplica a tu plataforma:
    - React Native (Expo): [`skills/react-native/`](./skills/react-native/)
@@ -256,7 +256,7 @@ Más en [`docs/03-faq.md`](./docs/03-faq.md).
 - 🔭 **Fase 3** — Skills Python (FastAPI + hexagonal)
 - 🔭 **Fase 4** — CLI generador de features (`npx cas-cli new-feature Clients`)
 
-Detalle en [`ROADMAP.md`](./ROADMAP.md).
+Detalle en [`ROADMAP.md`](./ROADMAP.md). Historial de cambios en [`CHANGELOG.md`](./CHANGELOG.md).
 
 ## Contribuir
 
@@ -268,4 +268,4 @@ MIT — ver [`LICENSE`](./LICENSE).
 
 ---
 
-_Escrito por [@&lt;kevinparra535&gt;](https://github.com/&lt;kevinparra535&gt;). Si esto te ayudó, deja una estrella ⭐ en el repo._
+_Escrito por [@Kevinparra535](https://github.com/Kevinparra535). Si esto te ayudó, deja una estrella ⭐ en el repo._
