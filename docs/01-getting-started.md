@@ -42,6 +42,34 @@ Sin esto, Inversify no funciona.
 
 ### 4. Crea la estructura de carpetas
 
+Vista panorámica:
+
+```mermaid
+flowchart TD
+    src["📁 src/"]
+    src --> ui["📁 ui/"]
+    src --> domain["📁 domain/"]
+    src --> data["📁 data/"]
+    src --> config["📁 config/"]
+
+    ui --> screens["screens/Feature/<br/>FeatureScreen.tsx<br/>FeatureViewModel.ts"]
+    domain --> entities["entities/"]
+    domain --> repos["repositories/<br/>(interfaces)"]
+    domain --> ucs["useCases/<br/>UseCaseName/index.ts"]
+    data --> models["models/"]
+    data --> repoImpls["repositories/<br/>(implementations)"]
+    data --> services["services/"]
+    config --> di["di.ts"]
+    config --> types["types.ts"]
+
+    style domain fill:#2D7EF8,stroke:#fff,color:#fff
+    style ui fill:#1A2F5E,stroke:#2D7EF8,color:#fff
+    style data fill:#1A2F5E,stroke:#9B59B6,color:#fff
+    style config fill:#0A1628,stroke:#2D7EF8,color:#fff
+```
+
+Detalle completo:
+
 ```
 src/
 ├── ui/

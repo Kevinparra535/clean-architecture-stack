@@ -46,6 +46,28 @@ Más detalle en [`docs/04-when-not-to-use.md`](./docs/04-when-not-to-use.md).
 
 Vamos a ver el flujo completo de **"agregar un cliente"**, de la pantalla hasta la API.
 
+```mermaid
+sequenceDiagram
+    participant S as ClientsScreen
+    participant VM as ClientsViewModel
+    participant UC as GetAllClientUseCase
+    participant R as ClientRepository
+    participant API as REST API
+
+    S->>VM: vm.loadAll()
+    VM->>VM: updateLoadingState(true)
+    VM->>UC: uc.run()
+    UC->>R: repo.getAll()
+    R->>API: GET /clients
+    API-->>R: ClientModel[]
+    R->>R: models.map(m => m.toDomain())
+    R-->>UC: Client[]
+    UC-->>VM: Client[]
+    VM->>VM: runInAction(() => isItemsResponse = data)
+    VM->>VM: updateLoadingState(false)
+    VM-->>S: re-render (observer)
+```
+
 ### 1. La pantalla solo bindea inputs y llama a la VM
 
 ```tsx
@@ -148,6 +170,29 @@ export class ClientRepositoryImpl implements ClientRepository {
 Ver el flujo completo de archivos en [`examples/`](./examples/).
 
 ## Las reglas no negociables
+
+```mermaid
+flowchart LR
+    UI["🖥️ UI<br/>Screens + Components"]
+    VM["🧠 ViewModel<br/>(MobX + Inversify)"]
+    UC["⚙️ UseCases<br/>(1 acción = 1 UC)"]
+    REPO["📜 Repository<br/>Interface (domain)"]
+    IMPL["🔌 Repository<br/>Impl (data)"]
+    SVC["🌐 Service<br/>HTTP / Firebase"]
+
+    UI --> VM
+    VM --> UC
+    UC --> REPO
+    IMPL -.implements.-> REPO
+    IMPL --> SVC
+
+    style UI fill:#1A2F5E,stroke:#2D7EF8,color:#fff
+    style VM fill:#1A2F5E,stroke:#2D7EF8,color:#fff
+    style UC fill:#0A1628,stroke:#2D7EF8,color:#fff
+    style REPO fill:#0A1628,stroke:#2D7EF8,color:#fff
+    style IMPL fill:#0A1628,stroke:#9B59B6,color:#fff
+    style SVC fill:#0A1628,stroke:#9B59B6,color:#fff
+```
 
 1. **UI depende solo del ViewModel.** No importa `data/`, no importa Firebase, no importa axios.
 2. **ViewModel depende solo de UseCases.** No conoce repositorios.
