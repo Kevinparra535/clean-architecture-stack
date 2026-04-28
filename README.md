@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Status](https://img.shields.io/badge/status-fase%201-blue)](./ROADMAP.md)
 
-![Clean Architecture Stack — capas concéntricas](./docs/assets/hero.png)
+![Clean Architecture Stack — capas concéntricas](./docs/assets/hero.webp)
 
 ---
 
