@@ -10,10 +10,14 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) y este
 - README principal con tour rápido, reglas no negociables y stack
 - Skills de React Native (Expo): `clean-architecture-rn-expo-mvvm`, `feature-scaffold-rn`, `design-system-rn`, `pr-checklist-clean-architecture`
 - ADR 001 — MobX over Zustand
+- ADR 002 — Inversify over React Context
+- ADR 003 — Class entities with index signature
+- ADR 004 — One UseCase per action
 - ADR 005 — ViewModel canonical pattern
 - `docs/00-philosophy.md` — los principios detrás de las decisiones
 - `docs/01-getting-started.md` — cómo aplicar a un proyecto
 - `docs/03-faq.md` — objeciones frecuentes
 - `docs/04-when-not-to-use.md` — cuándo es overkill
 - `examples/` con snippets canónicos
+- Hero image + diagramas Mermaid inline en el README
 - `ROADMAP.md`, `CONTRIBUTING.md`, `LICENSE`
